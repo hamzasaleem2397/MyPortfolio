@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Main from "./containers/Main";
+import { ThemeProvider } from "styled-components";
+import { themes } from "./theme";
+import { GlobalStyles } from "./global";
+import { CursorProvider } from "react-cursor-custom";
+import { settings } from "./portfolio";
+import ReactGA from "react-ga";
 
 function App() {
+  useEffect(() => {
+    if (settings.googleTrackingID) {
+      ReactGA.initialize(settings.googleTrackingID, {
+        testMode: process.env.NODE_ENV === "test",
+      });
+      ReactGA.pageview(window.location.pathname + window.location.search);
+    }
+  }, []);
+
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={themes[theme]}>
+      <>
+        <GlobalStyles />
+        <div>
+          <Main theme={themes[theme]} setTheme={setTheme} />
+        </div>
+      </>
+    </ThemeProvider>
   );
 }
 
