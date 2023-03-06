@@ -3,7 +3,10 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { Fade } from "react-reveal";
-import { projectsHeader, projects } from "../../portfolio.js";
+import {
+  projectsHeader,
+  projects,
+} from "../../portfolio.js";
 import "./Projects.css";
 import ProjectsImg from "./ProjectsImg";
 import { style } from "glamor";
@@ -45,23 +48,33 @@ function Projects(props) {
         </Fade>
       </div>
       <div className="repo-cards-div-main">
-        {projects.data.map((repo) => {
-          return <ProjectCard repo={repo} theme={theme} />;
-        })}
+        <h1>PROJECT TO BE ADDED SOON</h1>
+        {/* {projects.data.map((repo, index) => {
+          return (
+            <ProjectCard
+              key={index}
+              repo={repo}
+              theme={theme}
+            />
+          );
+        })} */}
       </div>
+      {/* <br />
       <br />
-      <br />
-      <br />
-      <a
+      <br /> */}
+      {/* <a
         {...styles}
         className="general-btn"
         href="https://github.com/harikanani"
       >
         More Projects (Github)
-      </a>
-      <br />
-      <br />
-      <Footer theme={props.theme} onToggle={props.onToggle} />
+      </a> */}
+      {/* <br />
+      <br /> */}
+      <Footer
+        theme={props.theme}
+        onToggle={props.onToggle}
+      />
     </div>
   );
 }

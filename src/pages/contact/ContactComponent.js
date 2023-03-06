@@ -5,7 +5,10 @@ import SocialMedia from "../../components/socialMedia/SocialMedia";
 import BlogsImg from "./BlogsImg";
 import { Fade } from "react-reveal";
 import "./ContactComponent.css";
-import { greeting, contactPageData } from "../../portfolio.js";
+import {
+  greeting,
+  contactPageData,
+} from "../../portfolio.js";
 import { style } from "glamor";
 
 const ContactData = contactPageData.contactSection;
@@ -50,14 +53,18 @@ function Contact(props) {
               <SocialMedia />
               <br />
               <br />
-              <a {...styles} className="general-btn" href={greeting.resumeLink}>
+              <a
+                {...styles}
+                className="general-btn"
+                href={greeting.resumeLink}
+              >
                 See my Resume
               </a>
             </div>
           </div>
         </Fade>
         <Fade bottom duration={1000} distance="40px">
-          <div className="blog-heading-div">
+          {/* <div className="blog-heading-div">
             <div className="blog-heading-text-div">
               <h1 className="blog-heading-text" style={{ color: theme.text }}>
                 {blogSection["title"]}
@@ -77,10 +84,13 @@ function Contact(props) {
             <div className="blog-heading-img-div">
               <BlogsImg theme={theme} />
             </div>
-          </div>
+          </div> */}
         </Fade>
       </div>
-      <Footer theme={props.theme} onToggle={props.onToggle} />
+      <Footer
+        theme={props.theme}
+        onToggle={props.onToggle}
+      />
     </div>
   );
 }

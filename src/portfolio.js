@@ -14,9 +14,10 @@ const greeting = {
   logo_name: "hamza.()",
   nickname: "Hmxa",
   full_name: "Muhammad Hamza Saleem",
-  subTitle: "React / ReactNative Developer 🔥. Always learning.",
+  subTitle:
+    "React / ReactNative Developer 🔥. Always learning.",
   resumeLink:
-    "https://docs.google.com/document/d/1A_jWRG74Rst427tg1izLa6vRXclS9_9F856jWJPJlDY/edit?usp=sharing",
+    "https://drive.google.com/file/d/16i9_pCXu1H87qxstQqAgqP3Ds-omC7HD/view?usp=sharing",
   mail: "mailto:hamzasaleem2397@gmail.com",
 };
 
@@ -133,7 +134,7 @@ const degrees = {
     {
       title: "Bahria University Karachi Campus",
       subtitle: "Bachelor in Computer Science",
-      logo_path: "ssec.png",
+      logo_path: "bahria.jpg",
       alt_name: "SSEC",
       duration: "2021 - Present",
       descriptions: [
@@ -152,12 +153,12 @@ const certifications = {
     {
       title: "Introduction to Game developement",
       subtitle: "Michigen University from Coursera",
-      logo_path: "mongo.png",
+      logo_path: "coursera.png",
       certificate_link:
-        "https://drive.google.com/file/d/12se6bMep48WXA1PlizTBAgCnW0GXM6wq/view?usp=sharing",
+        "https://coursera.org/verify/6P9T2EAPD6YV",
       alt_name: "Coursera",
-      // color_code: "#2AAFED",
-      color_code: "#47A048",
+      color_code: "#0056D2",
+      // color_code: "#47A048",
     },
     // color_code: "#b190b0",
   ],
@@ -176,32 +177,28 @@ const experience = {
       experiences: [
         {
           title: "React Native Developer",
-          company: "Sas Solutions",
-          company_url: "https://valora-infotech.business.site/",
-          logo_path: "valora.jpg",
-          duration: "Jan 2022 - Oct 2022",
+          company: "Visech Technolgy",
+          company_url: "https://visech.com/",
+          logo_path: "visech.jpg",
+          duration: "Sep 2020 - Oct 2020",
           location: "Office",
-          description: `Train, manage and provide guidance to junior software development staff.
-          Work closely with the Project Manager and Team Leads on change request functions.
-          Develops new and maintains existing applications.
-          Increased productivity and problem-solving technics by 20%.
-          We primarily used PERN and MERN Stack. 80% of my work was doing backend development and the remaining 20% was DevOps-related tasks.
+          description: `To be Added This site is undermaintainance
           `,
-          // "I worked on the Dashboard project which helps users track their activities while using Walo Application. I also worked on Ocean Inventory Application and it's Admin panel Backend as well as on Ocean Inventory Admin Front-end using React and also worked on Walo Admin Backend.",
-          color: "#0071C5",
+          // "Created Front end of Yearn Financial Mutual Funds website. also degined simple web application for better user experience, designed DB Schemas as well.",
+          color: "#3644af",
         },
         {
           title: "React Native Developer",
-          company: "Visech Technolgy",
-          company_url: "http://nightowls.company/",
-          logo_path: "nightowls.jpg",
-          duration: "Sep 2020 - Oct 2020",
+          company: "Sas Solutions",
+          company_url:
+            "https://www.linkedin.com/company/sassolution/",
+          logo_path: "sas.jpg",
+          duration: "Jan 2022 - Oct 2022",
           location: "Office",
-          description: `Work closely with the Client and Team on change request functions.
-          We Primarily used LAMP Stack. 40% of my work was doing backend development, 30% of my work was designing database schemas, and 30% of my work was on maintain hosting and user traffics on the website.
+          description: `To be Added This site is undermaintainance
           `,
-          // "Created Front end of Yearn Financial Mutual Funds website. also degined simple web application for better user experience, designed DB Schemas as well.",
-          color: "#ee3c26",
+          // "I worked on the Dashboard project which helps users track their activities while using Walo Application. I also worked on Ocean Inventory Application and it's Admin panel Backend as well as on Ocean Inventory Admin Front-end using React and also worked on Walo Admin Backend.",
+          color: "#0071C5",
         },
       ],
     },
@@ -220,7 +217,7 @@ const projectsHeader = {
 const contactPageData = {
   contactSection: {
     title: "Contact Me",
-    profile_image_path: "harikrushn.jpg",
+    profile_image_path: "hamza.png",
     description:
       "You can contact me at the places mentioned below. I will try to get back to you as fast as I can. ",
   },
@@ -336,7 +333,8 @@ const projects = {
       id: "3",
       name: "node_express_crud_api_starter",
       url: "https://github.com/harikanani/node_express_crud_api_starter",
-      description: "Simple NodeJS Express CRUD Operations API starter.",
+      description:
+        "Simple NodeJS Express CRUD Operations API starter.",
       languages: [
         {
           name: "NodeJS",
@@ -394,7 +392,8 @@ const projects = {
       id: "6",
       name: "Automate Attendace",
       url: "https://github.com/harikanani/Node_Python",
-      description: "Automation of Online Attendance using node js and python",
+      description:
+        "Automation of Online Attendance using node js and python",
       languages: [
         {
           name: "JavaScript",
@@ -431,7 +430,8 @@ const projects = {
       id: "8",
       name: "Flask Blog",
       url: "https://github.com/harikanani/flask_blog",
-      description: "A Simple Blog Web Application made using Flask Framework",
+      description:
+        "A Simple Blog Web Application made using Flask Framework",
       languages: [
         {
           name: "Python",
@@ -455,7 +455,8 @@ const projects = {
       id: "9",
       name: "Netflix top series",
       url: "https://github.com/harikanani/netflix-top-series",
-      description: "List of Top Netflix Series which is deployed to vercel.",
+      description:
+        "List of Top Netflix Series which is deployed to vercel.",
       languages: [
         {
           name: "JavaScript",

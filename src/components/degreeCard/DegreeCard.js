@@ -75,7 +75,7 @@ function DegreeCard(props) {
             style={{
               maxWidth: "100%",
               maxHeight: "100%",
-              transform: "scale(-50%, -50%)",
+              transform: "scale(50%, 50%)",
             }}
             src={require(`../../assests/images/${degree.logo_path}`)}
             alt={degree.alt_name}
@@ -89,23 +89,36 @@ function DegreeCard(props) {
             style={{ backgroundColor: theme.accentColor }}
           >
             <div className="body-header-title">
-              <h2 className="card-title" style={{ color: "#FFFFFF" }}>
+              <h2
+                className="card-title"
+                style={{ color: "#FFFFFF" }}
+              >
                 {degree.title}
               </h2>
-              <h3 className="card-subtitle" style={{ color: "#FFFFFF" }}>
+              <h3
+                className="card-subtitle"
+                style={{ color: "#FFFFFF" }}
+              >
                 {degree.subtitle}
               </h3>
             </div>
             <div className="body-header-duration">
-              <h3 className="duration" style={{ color: "#FFFFFF" }}>
+              <h3
+                className="duration"
+                style={{ color: "#FFFFFF" }}
+              >
                 {degree.duration}
               </h3>
             </div>
           </div>
-          <div classname="body-content">
-            {degree.descriptions.map((sentence) => {
+          <div className="body-content">
+            {degree.descriptions.map((sentence, index) => {
               return (
-                <p className="content-list" style={{ color: theme.text }}>
+                <p
+                  key={index}
+                  className="content-list"
+                  style={{ color: theme.text }}
+                >
                   {sentence}
                 </p>
               );
@@ -114,7 +127,10 @@ function DegreeCard(props) {
               href={degree.website_link}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ textDecoration: "none", textAlign: "center" }}
+              style={{
+                textDecoration: "none",
+                textAlign: "center",
+              }}
             >
               <p
                 {...button_visit}
