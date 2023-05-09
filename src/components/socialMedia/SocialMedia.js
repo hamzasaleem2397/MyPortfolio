@@ -25,6 +25,15 @@ export default function socialMedia() {
         <span></span>
       </a>
       <a
+        href={socialMediaLinks.facebook}
+        className="icon-button facebook"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i className="fab fa-facebook"></i>
+        <span></span>
+      </a>
+      <a
         href={`mailto:${socialMediaLinks.gmail}`}
         className="icon-button google"
         target="_blank"

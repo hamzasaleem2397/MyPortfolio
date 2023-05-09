@@ -48,8 +48,8 @@ function Projects(props) {
         </Fade>
       </div>
       <div className="repo-cards-div-main">
-        <h1>PROJECT TO BE ADDED SOON</h1>
-        {/* {projects.data.map((repo, index) => {
+        {/* <h1>PROJECT TO BE ADDED SOON</h1> */}
+        {projects.data.map((repo, index) => {
           return (
             <ProjectCard
               key={index}
@@ -57,7 +57,7 @@ function Projects(props) {
               theme={theme}
             />
           );
-        })} */}
+        })}
       </div>
       {/* <br />
       <br />

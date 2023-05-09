@@ -5,7 +5,14 @@
   font-size: 13px;
   color: rgb(106, 115, 125);
 }
-
+.project-container {
+  display: flex;
+  flex-direction: row;
+}
+.project-image {
+  width: 5%;
+  aspect-ratio: 1/1;
+}
 .repo-left-stat {
   -webkit-box-flex: 1;
   flex-grow: 1;
@@ -28,7 +35,7 @@
 }
 
 .repo-name-div {
-  display: flex;
+  /* display: flex; */
   align-items: center;
 }
 

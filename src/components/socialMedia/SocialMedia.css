@@ -67,14 +67,14 @@
   box-shadow: 0 5px 15px #ea4335;
 }
 
-.twitter i {
-  background-color: #1da1f2;
+.facebook i {
+  background-color: #2374e1;
   transition: all 0.2s ease-in-out;
 }
 
-.twitter i:hover {
+.facebook i:hover {
   color: rgba(255, 255, 255, 1);
-  box-shadow: 0 5px 15px #1da1f2;
+  box-shadow: 0 5px 15px #2374e1;
 }
 
 .instagram i {

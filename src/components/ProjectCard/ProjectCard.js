@@ -12,6 +12,7 @@ export default function ProjectCard({ repo, theme }) {
 
   const styles = style({
     color: "rgb(88, 96, 105)",
+    width: "40%",
     backgroundColor: "rgb(255, 255, 255)",
     boxShadow: "rgba(0, 0, 0, 0.2) 0px 10px 30px -15px",
     padding: "2rem",
@@ -33,16 +34,28 @@ export default function ProjectCard({ repo, theme }) {
           onClick={() => openRepoinNewTab(repo.url)}
           style={{ backgroundColor: theme.projectCard }}
         >
-          <div className="repo-name-div">
-            <p className="repo-name" style={{ color: theme.text }}>
-              {repo.name}
-            </p>
-          </div>
-          <p className="repo-description" style={{ color: theme.text }}>
-            {repo.description}
-          </p>
-          <div className="repo-details">
-            <ProjectLanguages logos={repo.languages} />
+          <div className="project-container">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+              className="project-image"
+            />
+            <div className="repo-name-div">
+              <p
+                className="repo-name"
+                style={{ color: theme.text }}
+              >
+                {repo.name}
+              </p>
+              <p
+                className="repo-description"
+                style={{ color: theme.text }}
+              >
+                {repo.description}
+              </p>
+            </div>
+            <div className="repo-details">
+              <ProjectLanguages logos={repo.languages} />
+            </div>
           </div>
         </div>
       </Fade>
