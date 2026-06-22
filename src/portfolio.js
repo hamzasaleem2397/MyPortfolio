@@ -466,7 +466,7 @@ const projects = {
         "aquamatrix3.webp",
         "aquamatrix4.webp",
         "aquamatrix5.webp",
-        "aquamatrix6.webp",
+      
       ],
       logo: "aqualogo.webp",
       playstore:
