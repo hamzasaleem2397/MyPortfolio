@@ -10,7 +10,7 @@ import {
   contactPageData,
 } from "../../portfolio.js";
 import { style } from "glamor";
-
+import PDF from "../../assests/documents/Muhammad_Hamza_Saleem_React_Native_Developer_4yr_resume.pdf";
 const ContactData = contactPageData.contactSection;
 const blogSection = contactPageData.blogSection;
 
@@ -54,38 +54,18 @@ function Contact(props) {
               <br />
               <br />
               <a
+              
                 {...styles}
                 className="general-btn"
-                href={greeting.resumeLink}
+                target="_blank" rel="noopener noreferrer"
+                href={PDF}
               >
                 See my Resume
               </a>
             </div>
           </div>
         </Fade>
-        <Fade bottom duration={1000} distance="40px">
-          {/* <div className="blog-heading-div">
-            <div className="blog-heading-text-div">
-              <h1 className="blog-heading-text" style={{ color: theme.text }}>
-                {blogSection["title"]}
-              </h1>
-              <p
-                className="blog-header-detail-text subTitle"
-                style={{ color: theme.secondaryText }}
-              >
-                {blogSection["subtitle"]}
-              </p>
-              <div className="blogsite-btn-div">
-                <a {...styles} className="general-btn" href={blogSection.link}>
-                  My Twitter Profile
-                </a>
-              </div>
-            </div>
-            <div className="blog-heading-img-div">
-              <BlogsImg theme={theme} />
-            </div>
-          </div> */}
-        </Fade>
+       
       </div>
       <Footer
         theme={props.theme}

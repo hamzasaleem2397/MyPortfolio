@@ -108,6 +108,7 @@ function ProjectModal({ project, theme, onClose }) {
                     src={require(`../../assests/images/${imgUrl}`)}
                     alt={`${project.name} Screenshot ${index + 1}`}
                     className="modal-slide-img"
+                    
                     onError={(e) => {
                       e.target.onerror = null;
                       e.target.src =

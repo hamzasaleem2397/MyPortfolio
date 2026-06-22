@@ -16,18 +16,17 @@ const greeting = {
   full_name: "Muhammad Hamza Saleem",
   subTitle:
     "React / ReactNative Developer 🔥. Always learning.",
-  resumeLink:
-    "https://drive.google.com/file/d/16i9_pCXu1H87qxstQqAgqP3Ds-omC7HD/view?usp=sharing",
+  resumefile:
+    "Muhammad_Hamza_Saleem_React_Native_Developer_4yr_resume.pdf",
   mail: "mailto:hamzasaleem2397@gmail.com",
 };
 
 const socialMediaLinks = {
   /* Your Social Media Link */
   github: "https://github.com/hamzasaleem2397",
-  linkedin: "https://www.linkedin.com",
+  linkedin: "https://www.linkedin.com/in/hamza-saleem2397/",
   gmail: "hamzasaleem2397@gmail.com",
-  facebook: "https://www.facebook.com",
-  instagram: "https://www.instagram.com/hari_kanani_/",
+  
 };
 
 const skills = {
@@ -306,14 +305,14 @@ const projects = {
       description:
         "An engaging storytelling and creative writing app that helps users craft interactive tales and narratives. TaleMaster blends creativity with technology to make storytelling fun and accessible for all ages.",
       images: [
-        "talemaster1.png",
-        "talemaster2.png",
-        "talemaster3.png",
-        "talemaster4.png",
-        "talemaster5.png",
-        "talemaster6.png",
-        "talemaster7.png",
         "talemaster8.png",
+        "talemaster7.png",
+        "talemaster6.png",
+        "talemaster5.png",
+        "talemaster4.png",
+        "talemaster3.png",
+        "talemaster2.png",
+        "talemaster1.png",
 
 
       ],
@@ -341,7 +340,7 @@ const projects = {
       images: [
         "flash1.webp",
         "flash2.webp",
-        "flash3.webp",
+     
         "flash4.webp",
         "flash5.webp",
         "flash6.webp",
@@ -388,7 +387,7 @@ const projects = {
           image: "ts.png",
         },
         {name:"Nest.js", image:"nest.png"},
-        {name:"Zendesk API", image:"zendesk.png"},
+        {name:"Zendesk API", image:"zendesk.jpg"},
       
       ],
     },
@@ -426,7 +425,8 @@ const projects = {
       id: "6",
       name: "Fitso",
       description:
-        "Fitso is a comprehensive fitness and sports platform connecting users with sports facilities, coaches, and fitness activities nearby. Book courts, join group sessions, track fitness progress, and connect with a community of sports enthusiasts. Whether you're into football, badminton, swimming, or yoga — Fitso has you covered.",
+        "Fitso is a free smart nutrition tracking app that creates personalized calorie and macronutrient plans based on your goals, lets you easily log food using barcode scanning, AI photo recognition, or manual entry, and helps you stay consistent with features like meal saving, recipe creation, and full nutrition tracking history in a simple, user-friendly interface.et obsessed with your nutrition journey! Whether you want to lose weight, gain muscle, or maintain a healthy lifestyle, Fitso provides all the tools you need, with no hidden costs."
+,
       images: [
         "fitso1.webp",
         "fitso2.webp",
@@ -483,7 +483,7 @@ const projects = {
               image: "js.png",
             },
           
-            {name:"Woo Commerce API", image:"woocommerce.png"},
+            {name:"WooCommerce API", image:"woocommerce.png"},
       ]
         
       
