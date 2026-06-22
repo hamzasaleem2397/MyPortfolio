@@ -15,7 +15,7 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: "module",
   },
-  plugins: ["react", "react-hooks", "prettier"],
+  plugins: ["react", "react-hooks",],
   rules: {
     "no-unused-vars": [
       "warn",

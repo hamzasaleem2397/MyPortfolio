@@ -167,38 +167,77 @@ const certifications = {
 // Experience Page
 const experience = {
   title: "Experience",
-  subtitle: "Work, Internship and Volunteership",
+  subtitle: "Work & Internship",
   description:
-    "I've completed two internships.Currently working as a React Native Developer in Visech Technology.",
+    "3+ years of professional experience building production-grade React Native applications for iOS and Android. I've worked across multiple companies, growing from intern to Senior Developer, owning full mobile architecture, performance optimization, and team mentorship.",
   header_image_path: "experience.svg",
   sections: [
     {
       title: "Work Experience",
       experiences: [
         {
+          title: "Senior React Native Developer",
+          company: "Zenkoders",
+          company_url: "https://zenkoders.com/",
+          logo_path: "zenkoders.png",
+          duration: "Jun 2023 – May 2026",
+          location: "Karachi, Pakistan",
+          description: `• Owned mobile architecture and end-to-end delivery of scalable React Native applications (iOS & Android)
+• Built production-grade apps with modular architecture, improving maintainability and development velocity (React Native, TypeScript)
+• Implemented monetization features using In-App Purchases and AdMob integration, contributing directly to revenue generation
+• Contributed to the company's internal React Native boilerplate, reducing new project setup time by nearly 60%
+• Designed real-time communication systems using Agora SDK with custom native modules
+• Developed Android native widgets and bridged them with React Native for dynamic user engagement
+• Built and optimized backend systems using Firebase Cloud Functions and scheduled Cron Jobs
+• Developed serverless APIs using Supabase (Edge Functions, RPC, RLS)
+• Implemented real-time chat with low-latency socket communication
+• Improved app performance using React Query, RTK Query, and MMKV caching strategies
+• Built global state architecture using Zustand and custom hooks
+• Integrated secure authentication flows (Google, Apple, Facebook)
+• Managed full App Store and Google Play release lifecycle
+• Mentored junior developers through code reviews, architecture guidance, and debugging support`,
+          color: "#6C63FF",
+        },
+        {
           title: "React Native Developer",
-          company: "Visech Technolgy",
+          company: "VISECH Technologies Pvt Ltd",
           company_url: "https://visech.com/",
           logo_path: "visech.jpg",
-          duration: "Sep 2020 - Oct 2020",
-          location: "Office",
-          description: `To be Added This site is undermaintainance
-          `,
-          // "Created Front end of Yearn Financial Mutual Funds website. also degined simple web application for better user experience, designed DB Schemas as well.",
+          duration: "Oct 2022 – May 2023",
+          location: "Karachi, Pakistan",
+          description: `• Developed and maintained production mobile applications using React Native
+• Integrated REST APIs and optimized data flow for performance and scalability
+• Implemented state management using Zustand for complex application flows
+• Collaborated in agile teams for feature delivery and sprint execution`,
           color: "#3644af",
         },
         {
           title: "React Native Developer",
-          company: "Sas Solutions",
-          company_url:
-            "https://www.linkedin.com/company/sassolution/",
+          company: "SAS Solutions",
+          company_url: "https://www.linkedin.com/company/sassolution/",
           logo_path: "sas.jpg",
-          duration: "Jan 2022 - Oct 2022",
-          location: "Office",
-          description: `To be Added This site is undermaintainance
-          `,
-          // "I worked on the Dashboard project which helps users track their activities while using Walo Application. I also worked on Ocean Inventory Application and it's Admin panel Backend as well as on Ocean Inventory Admin Front-end using React and also worked on Walo Admin Backend.",
+          duration: "Jun 2022 – Oct 2022",
+          location: "Karachi, Pakistan",
+          description: `• Built and deployed cross-platform mobile applications for iOS and Android
+• Integrated payment gateways including Stripe, Razorpay, and Paystack
+• Implemented push notification systems using OneSignal
+• Developed multilingual applications supporting RTL and LTR layouts
+• Integrated social authentication systems (Apple, Google, Facebook)
+• Improved app stability through debugging and performance optimization
+• Managed version control and collaboration using GitHub`,
           color: "#0071C5",
+        },
+        {
+          title: "React Native Developer – Intern",
+          company: "SAS Solutions",
+          company_url: "https://www.linkedin.com/company/sassolution/",
+          logo_path: "sas.jpg",
+          duration: "Jan 2022 – Apr 2022",
+          location: "Karachi, Pakistan",
+          description: `• Assisted in development of React Native applications and feature implementation
+• Worked on API integration, debugging, and UI improvements
+• Gained experience in mobile architecture and deployment workflows`,
+          color: "#00B4D8",
         },
       ],
     },
@@ -209,7 +248,7 @@ const experience = {
 const projectsHeader = {
   title: "Projects",
   description:
-    "My projects make use of a vast variety of latest technology tools. My best experience is to create NodeJS Backend Projects, Python Scripts, and React Project. Below are some of my projects. Note that not all of the mentioned projects are on GitHub yet.",
+    "My projects make use of a vast variety of latest technology tools. My best experience is to create ReactNative Projects. Below are some of my projects. Note that not all of the mentioned projects are on GitHub yet.",
   avatar_image_path: "projects_image.svg",
 };
 
@@ -230,23 +269,225 @@ const contactPageData = {
   },
 };
 
+
 const projects = {
   data: [
     {
-      id: "0",
-      name: "AutomateInstaPyBot",
-      url: "https://github.com/harikanani/AutomateInstaPyBot",
+      id: "1",
+      name: "NXR Mobile",
       description:
-        "This is Instagram Bot. This will login to your Instagram account. Follow Users, Unfollow Users, Remove Profile Photo",
+        "A restaurant management companion app powered by AI. Chat with your restaurant's AI assistant Nexy, track real-time sales data, monitor labor costs, and get instant push notifications of critical events — all from your phone. Built for restaurant owners who need to stay on top of their business anytime, anywhere.",
+      images: [
+        "nx1.webp",
+        "nx2.webp",
+        "nx3.webp",
+        "nx4.webp",
+        "nx5.webp",
+
+      ],
+      logo: "nxlogo.png",
+      appstore: "https://apps.apple.com/us/app/nxr-mobile/id6575389161",
+      playstore:
+        "https://play.google.com/store/apps/details?id=com.nx_restaurant.nx_android",
       languages: [
         {
-          name: "Python",
-          iconifyClass: "logos-python",
+          name: "React Native",
+          image: "rn.jpg",
+        },
+        {
+          name: "Type Script",
+          image: "ts.png",
         },
       ],
     },
+    {
+      id: "2",
+      name: "TaleMaster",
+      description:
+        "An engaging storytelling and creative writing app that helps users craft interactive tales and narratives. TaleMaster blends creativity with technology to make storytelling fun and accessible for all ages.",
+      images: [
+        "talemaster1.png",
+        "talemaster2.png",
+        "talemaster3.png",
+        "talemaster4.png",
+        "talemaster5.png",
+        "talemaster6.png",
+        "talemaster7.png",
+        "talemaster8.png",
 
 
+      ],
+      logo: "talemasterlogo.jpg",
+   playstore:"https://talemaster.en.aptoide.com/app",
+      languages: [
+        {
+          name: "React Native",
+          image: "rn.jpg",
+        },
+        {
+          name: "JavaScript",
+          image: "js.png",
+        },
+        {name:"Firebase", image:"firebase.png"},
+        {name:"OpenAI API", image:"openai.png"},
+        {name:"Amazon Polly Api", image:"amazonpolly.jpg"},
+      ],
+    },
+    {
+      id: "3",
+      name: "Flash Review",
+      description:
+        "Flash Review is an exam preparation app designed to help you study smarter, not harder. Create and review flashcards, track your progress, and ace your exams with focused study sessions. An ideal companion for students and professionals preparing for certification exams.",
+      images: [
+        "flash1.webp",
+        "flash2.webp",
+        "flash3.webp",
+        "flash4.webp",
+        "flash5.webp",
+        "flash6.webp",
+      ],
+      logo: "flashreviewlogo.webp",
+      playstore:
+        "https://play.google.com/store/apps/details?id=com.flash_review_ma&hl=en",
+      appstore: "https://apps.apple.com/us/app/nxr-mobile/id6575389161",
+      languages: [
+        {
+          name: "React Native",
+          image: "rn.jpg",
+        },
+        {
+          name: "Type Script",
+          image: "ts.png",
+        },
+        {name:"MongoDB", image:"mongo.png"},
+        {name:"Nest.js", image:"nest.png"},
+      ],
+    },
+    {
+      id: "4",
+      name: "Meta Healthcare",
+      description:
+        "Meta Healthcare is committed to making it easier for you to access the care and support you need. Request support workers and allied health professionals including Occupational Therapists and Physiotherapists, stay informed about upcoming events, chat directly with our customer service team, and build a personalised profile for a seamless experience. Your well-being is our priority.",
+      images: [
+        "meta1.webp",
+        "meta2.webp",
+        "meta3.webp",
+        "meta4.webp",
+      ],
+      logo: "metalogo.webp",
+      appstore:
+        "https://apps.apple.com/au/app/meta-healthcare/id6602893403",
+      playstore:
+        "https://play.google.com/store/apps/details?id=com.meta_heathcare_mobileapp",
+      languages: [
+        {
+          name: "React Native",
+          image: "rn.jpg",
+        },
+        {name: "Type Script",
+          image: "ts.png",
+        },
+        {name:"Nest.js", image:"nest.png"},
+        {name:"Zendesk API", image:"zendesk.png"},
+      
+      ],
+    },
+    {
+      id: "5",
+      name: "Runback",
+      description:
+        "RunBack is a behavioral fitness app that helps you build running habits through financial accountability. Set running goals, pledge refundable money, and earn it back only when you follow through — verified automatically via Strava. No gambling, no betting — just your own money and your own effort. RunBack turns procrastination into consistency using behavioral science.",
+      images: [
+        "runback1.webp",
+        "runback2.webp",
+        "runback3.webp",
+        "runback4.webp",
+        "runback5.webp",
+      ],
+      logo: "runbacklogo.webp",
+      appstore: "https://apps.apple.com/us/app/run-back/id6752663984",
+      languages: [
+        {
+          name: "React Native",
+          image: "rn.jpg",
+        },
+        {
+          name: "Supabase",
+          image: "supabase.jpg",
+        },
+        {name: "Type Script",
+          image: "ts.png",
+        },
+        {name:"Strava API", image:"strava.png"},
+        {name:"Stripe API", image:"stripe.jpg"},
+      ],
+    },
+    {
+      id: "6",
+      name: "Fitso",
+      description:
+        "Fitso is a comprehensive fitness and sports platform connecting users with sports facilities, coaches, and fitness activities nearby. Book courts, join group sessions, track fitness progress, and connect with a community of sports enthusiasts. Whether you're into football, badminton, swimming, or yoga — Fitso has you covered.",
+      images: [
+        "fitso1.webp",
+        "fitso2.webp",
+        "fitso3.webp",
+        "fitso4.webp",
+        "fitso5.webp",
+        "fitso6.webp",
+      ],
+      logo: "fitso.webp",
+      playstore:
+        "https://play.google.com/store/apps/details?id=com.fitso_mobile_app&hl=en",
+      languages: 
+        
+          [
+            {
+              name: "React Native",
+              image: "rn.jpg",
+            },
+            {
+              name: "Type Script",
+              image: "ts.png",
+            },
+            {name:"Firebase", image:"firebase.png"},
+            {name:"Open Food Facts API", image:"openfoodfacts.png"},
+      ]
+        
+      
+    },
+    {
+      id: "7",
+      name: "Aqua Matrix",
+      description:
+        "Aqua Matrix is an e-commerce Application which allows user to easily purchase their desired products.It provide two language option which is Deutsch and English.User can add product to their cart which allow user to setup multiple product on single purchase.User can edit create, login and edit account.",
+      images: [
+        "aquamatrix1.webp",
+        "aquamatrix2.webp",
+        "aquamatrix3.webp",
+        "aquamatrix4.webp",
+        "aquamatrix5.webp",
+        "aquamatrix6.webp",
+      ],
+      logo: "aqualogo.webp",
+      playstore:
+        "https://apkpure.com/aqua-matrix/com.coral.aquamatrixn",
+      languages: 
+        
+          [
+            {
+              name: "React Native",
+              image: "rn.jpg",
+            },
+            {
+              name: "JavaScript",
+              image: "js.png",
+            },
+          
+            {name:"Woo Commerce API", image:"woocommerce.png"},
+      ]
+        
+      
+    }
   ],
 };
 

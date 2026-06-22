@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import ProjectCard from "../../components/ProjectCard/ProjectCard";
+
 import { Fade } from "react-reveal";
 import {
   projectsHeader,
@@ -10,9 +10,12 @@ import {
 import "./Projects.css";
 import ProjectsImg from "./ProjectsImg";
 import { style } from "glamor";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import ProjectModal from "../../components/ProjectModal/ProjectModal";
 
 function Projects(props) {
   const theme = props.theme;
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const styles = style({
     backgroundColor: `${theme.accentBright}`,
@@ -48,33 +51,28 @@ function Projects(props) {
         </Fade>
       </div>
       <div className="repo-cards-div-main">
-        <h1>PROJECT TO BE ADDED SOON</h1>
-        {/* {projects.data.map((repo, index) => {
+        {projects.data.map((repo, index) => {
           return (
             <ProjectCard
-              key={index}
+              key={repo.id || index}
               repo={repo}
               theme={theme}
+              onClick={(proj) => setSelectedProject(proj)}
             />
           );
-        })} */}
+        })}
       </div>
-      {/* <br />
-      <br />
-      <br /> */}
-      {/* <a
-        {...styles}
-        className="general-btn"
-        href="https://github.com/harikanani"
-      >
-        More Projects (Github)
-      </a> */}
-      {/* <br />
-      <br /> */}
       <Footer
         theme={props.theme}
         onToggle={props.onToggle}
       />
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          theme={theme}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </div>
   );
 }

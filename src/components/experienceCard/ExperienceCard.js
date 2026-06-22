@@ -53,12 +53,21 @@ function ExperienceCard(props) {
             </p>
           </div>
         </div>
-        <p
-          className="experience-card-description"
-          style={{ color: theme.text }}
-        >
-          {experience["description"]}
-        </p>
+        <ul className="experience-card-description-list">
+          {experience["description"]
+            .split("\n")
+            .map((line) => line.trim())
+            .filter((line) => line.length > 0)
+            .map((line, index) => (
+              <li
+                key={index}
+                className="experience-card-description-item"
+                style={{ color: theme.text }}
+              >
+                {line.startsWith("•") ? line.substring(1).trim() : line}
+              </li>
+            ))}
+        </ul>
       </div>
     </div>
   );

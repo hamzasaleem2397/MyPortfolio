@@ -1,51 +1,81 @@
 import React from "react";
-import ProjectLanguages from "../projectLanguages/ProjectLanguages";
 import "./ProjectCard.css";
+import ProjectLanguages from "../projectLanguages/ProjectLanguages";
 import { Fade } from "react-reveal";
-import { style } from "glamor";
 
-export default function ProjectCard({ repo, theme }) {
-  function openRepoinNewTab(url) {
-    var win = window.open(url, "_blank");
-    win.focus();
-  }
-
-  const styles = style({
-    color: "rgb(88, 96, 105)",
-    backgroundColor: "rgb(255, 255, 255)",
-    boxShadow: "rgba(0, 0, 0, 0.2) 0px 10px 30px -15px",
-    padding: "2rem",
-    cursor: "pointer",
-    borderRadius: "5px",
-    height: "100%",
-    transition: "all 0.2s ease-in-out",
-    ":hover": {
-      boxShadow: `${theme.imageDark} 0 2px 15px`,
-    },
-  });
+function ProjectCard({ repo, theme, onClick }) {
+  // Truncate description for the card view
+  const truncateString = (str, num) => {
+    if (str && str.length > num) {
+      return str.slice(0, num) + "...";
+    } else {
+      return str;
+    }
+  };
 
   return (
     <div>
       <Fade bottom duration={2000} distance="40px">
         <div
-          {...styles}
-          key={repo.id}
-          onClick={() => openRepoinNewTab(repo.url)}
+          className="project-card-div"
+          key={repo.id || repo.name}
+          onClick={() => onClick(repo)}
           style={{ backgroundColor: theme.projectCard }}
         >
-          <div className="repo-name-div">
-            <p className="repo-name" style={{ color: theme.text }}>
+          <div className="project-name-div">
+            <p className="project-name" style={{ color: theme.text }}>
               {repo.name}
             </p>
           </div>
-          <p className="repo-description" style={{ color: theme.text }}>
-            {repo.description}
+
+          {repo?.logo && (
+            <div className="project-image-container">
+              <img
+                src={require(`../../assests/images/${repo.logo}`)}
+                alt={repo.name}
+                className="project-image"
+              />
+            </div>
+          )}
+          <p className="project-description" style={{ color: theme.text }}>
+            {truncateString(repo.description, 120)}
           </p>
-          <div className="repo-details">
-            <ProjectLanguages logos={repo.languages} />
+          <div className="project-details">
+            {repo.languages && repo.languages.length > 0 && (
+              <ProjectLanguages logos={repo.languages} />
+            )}
+
+            <div className="project-platforms">
+              {repo.playstore && (
+                <span
+                  className="iconify platform-icon"
+                  data-icon="simple-icons:googleplay"
+                  data-inline="false"
+                  style={{ color: theme.secondaryText }}
+                ></span>
+              )}
+              {repo.appstore && (
+                <span
+                  className="iconify platform-icon"
+                  data-icon="simple-icons:apple"
+                  data-inline="false"
+                  style={{ color: theme.secondaryText }}
+                ></span>
+              )}
+              {repo.url && !repo.playstore && !repo.appstore && (
+                <span
+                  className="iconify platform-icon"
+                  data-icon="simple-icons:github"
+                  data-inline="false"
+                  style={{ color: theme.secondaryText }}
+                ></span>
+              )}
+            </div>
           </div>
         </div>
       </Fade>
     </div>
   );
 }
+
+export default ProjectCard;
