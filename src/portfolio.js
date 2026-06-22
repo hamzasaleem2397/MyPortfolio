@@ -36,9 +36,9 @@ const skills = {
       fileName: "FullStackImg",
       skills: [
         "⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications",
-        "⚡ Building responsive website front end using ReactJS",
+        "⚡ Building responsive website front end using ReactJS and Next.js ",
         "⚡ Developing mobile applications using React Native",
-        "⚡ Creating application backend in Node, Express & Mongodb",
+        "⚡ Creating application backend in Node,Nest, Supabase , Firebase",
       ],
       softwareSkills: [
         {
@@ -168,7 +168,7 @@ const experience = {
   title: "Experience",
   subtitle: "Work & Internship",
   description:
-    "3+ years of professional experience building production-grade React Native applications for iOS and Android. I've worked across multiple companies, growing from intern to Senior Developer, owning full mobile architecture, performance optimization, and team mentorship.",
+    "4+ years of professional experience building production-grade React Native applications for iOS and Android. I've worked across multiple companies, growing from intern to Senior Developer, owning full mobile architecture, performance optimization, and team mentorship.",
   header_image_path: "experience.svg",
   sections: [
     {
