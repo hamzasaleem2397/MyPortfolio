@@ -135,7 +135,7 @@ const degrees = {
       subtitle: "Bachelor in Computer Science",
       logo_path: "bahria.jpg",
       alt_name: "SSEC",
-      duration: "2021 - Present",
+      duration: "2017 - 2021",
       descriptions: [
         "⚡ I've completed my Bachelor degree in 2021.",
         "⚡ I have studied core subjects like Data Structures, DBMS, Networking, Security, etc.",
