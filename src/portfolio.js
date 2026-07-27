@@ -288,7 +288,7 @@ const projects = {
 
       ],
       logo: "studiogrowicon.webp",
-      appstore: "https://apps.apple.com/us/app/nxr-mobile/id6575389161",
+     
       playstore:
         "https://play.google.com/store/apps/details?id=com.wellnesscycle.app&hl=en&pli=1",
       languages: [
