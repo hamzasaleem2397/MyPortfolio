@@ -8,7 +8,7 @@ const lightTheme = {
   secondaryText: "#7F8DAA",
   accentColor: "#E3405F",
   accentBright: "#FC1056",
-  projectCard: "#DCE4F2",
+  projectCard: "#fcecef",
   skinColor: "#F7B799",
   skinColor2: "#FCB696",
   imageDark: "#dce4f2",

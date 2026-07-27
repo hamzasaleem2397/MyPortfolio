@@ -271,6 +271,41 @@ const contactPageData = {
 
 const projects = {
   data: [
+
+    
+    {
+      id: "0",
+      name: "Studio Grow",
+      description:
+        "This app is a cycle-based wellness platform designed to provide personalized nutrition, workout plans, and progress tracking tailored to a user’s menstrual cycle. It features dynamic meal plans, phase-adapted workouts, and real-time progress insights, all synced with the user’s hormonal phases. Key functionalities include automated grocery lists, batch cooking support, and admin tools for coaching oversight.",
+      images: [
+        "studiogrow1.webp",
+        "studiogrow2.webp",
+        "studiogrow3.webp",
+        "studiogrow4.webp",
+        "studiogrow5.webp",
+     
+
+      ],
+      logo: "studiogrowicon.webp",
+      appstore: "https://apps.apple.com/us/app/nxr-mobile/id6575389161",
+      playstore:
+        "https://play.google.com/store/apps/details?id=com.wellnesscycle.app&hl=en&pli=1",
+      languages: [
+        {
+          name: "React Native",
+          image: "rn.jpg",
+        },
+        {
+          name: "Type Script",
+          image: "ts.png",
+        },
+        {
+          name: "Supabase",
+          image: "supabase.jpg",
+        }
+      ],
+    },
     {
       id: "1",
       name: "NXR Mobile",
