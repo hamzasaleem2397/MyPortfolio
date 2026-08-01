@@ -1,0 +1,16 @@
+{
+  "../node_modules/.pnpm/@react-three+drei@9.122.0_@react-three+fiber@8.18.0_@types+react@18.3.31_react-dom@18.3_205fc6e4537378c0b1f85a4561838a33/node_modules/@react-three/drei/core/VideoTexture.js -> hls.js": {
+    "id": "../node_modules/.pnpm/@react-three+drei@9.122.0_@react-three+fiber@8.18.0_@types+react@18.3.31_react-dom@18.3_205fc6e4537378c0b1f85a4561838a33/node_modules/@react-three/drei/core/VideoTexture.js -> hls.js",
+    "files": []
+  },
+  "../node_modules/.pnpm/@react-three+drei@9.122.0_@react-three+fiber@8.18.0_@types+react@18.3.31_react-dom@18.3_205fc6e4537378c0b1f85a4561838a33/node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision": {
+    "id": "../node_modules/.pnpm/@react-three+drei@9.122.0_@react-three+fiber@8.18.0_@types+react@18.3.31_react-dom@18.3_205fc6e4537378c0b1f85a4561838a33/node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision",
+    "files": []
+  },
+  "components/greeting/GreetingSection.tsx -> ../canvas/HeroScene3D": {
+    "id": "components/greeting/GreetingSection.tsx -> ../canvas/HeroScene3D",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_canvas_HeroScene3D_tsx.js"
+    ]
+  }
+}

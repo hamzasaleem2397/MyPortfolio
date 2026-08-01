@@ -3,3 +3,4 @@ allowBuilds:
   core-js: false
   core-js-pure: false
   node-sass: false
+  unrs-resolver: false
