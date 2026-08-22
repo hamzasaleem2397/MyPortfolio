@@ -91,3 +91,13 @@
 .glow-border:hover::after {
   opacity: 0.8;
 }
+
+/* Three.js / R3F Canvas – force transparent backgrounds */
+canvas[data-engine] {
+  background: transparent !important;
+}
+
+/* Drei Html wrapper divs – must be transparent so the page BG shows through */
+div[style*="position: absolute"][style*="transform: translate"] {
+  background: transparent !important;
+}

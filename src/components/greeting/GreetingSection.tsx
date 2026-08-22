@@ -17,16 +17,16 @@ const HeroScene3D = dynamic(() => import("../canvas/HeroScene3D"), {
 
 export default function GreetingSection() {
   return (
-    <section id="home" className="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+    <section id="home" className="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-x-clip">
+      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center">
+
           {/* Left Text Column */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-7 flex flex-col items-start"
+            className="lg:col-span-6 flex flex-col items-start"
           >
             {/* Availability Pill */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-400 text-xs font-semibold tracking-wide uppercase mb-6 backdrop-blur-md">
@@ -109,10 +109,9 @@ export default function GreetingSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="lg:col-span-5 flex items-center justify-center relative"
+            className="w-[280px] sm:w-[360px] lg:w-[490px] max-w-full min-w-0 h-[280px] sm:h-[360px] lg:h-[540px] mx-auto lg:mx-0 lg:col-span-6 flex items-center justify-center relative overflow-visible z-10"
+            style={{ transform: "translate3d(0,0,0)", willChange: "transform" }}
           >
-            {/* Glowing Backdrop Mesh */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-purple-500/20 rounded-full blur-3xl -z-10 pointer-events-none" />
             <HeroScene3D />
           </motion.div>
 
