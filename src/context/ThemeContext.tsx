@@ -4,103 +4,92 @@ import React, { createContext, useContext, useEffect, useState, useRef } from "r
 
 export type Theme = "dark" | "light";
 
+export interface TransitionState {
+  active: boolean;
+  x: number;
+  y: number;
+  fromTheme: Theme;
+}
+
 interface ThemeContextType {
   theme: Theme;
-  targetTheme: Theme | null;
-  isTransitioning: boolean;
-  setTheme: (theme: Theme) => void;
-  toggleTheme: () => void;
   mounted: boolean;
+  transition: TransitionState | null;
+  toggleTheme: (originX?: number, originY?: number) => void;
+  endTransition: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType>({
   theme: "dark",
-  targetTheme: null,
-  isTransitioning: false,
-  setTheme: () => {},
-  toggleTheme: () => {},
   mounted: false,
+  transition: null,
+  toggleTheme: () => {},
+  endTransition: () => {},
 });
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Dark theme is the default
-  const [theme, setThemeState] = useState<Theme>("dark");
-  const [targetTheme, setTargetTheme] = useState<Theme | null>(null);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [mounted, setMounted] = useState(false);
+function applyTheme(t: Theme) {
+  const root = document.documentElement;
+  if (t === "light") {
+    root.classList.remove("dark");
+    root.classList.add("light");
+    root.style.colorScheme = "light";
+  } else {
+    root.classList.add("dark");
+    root.classList.remove("light");
+    root.style.colorScheme = "dark";
+  }
+}
 
-  const switchTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const finishTimerRef = useRef<NodeJS.Timeout | null>(null);
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [theme, setTheme] = useState<Theme>("dark");
+  const [mounted, setMounted] = useState(false);
+  const [transition, setTransition] = useState<TransitionState | null>(null);
+  const lockRef = useRef(false);
 
   useEffect(() => {
     setMounted(true);
     try {
-      const storedTheme = localStorage.getItem("portfolio-theme") as Theme | null;
-      if (storedTheme === "light" || storedTheme === "dark") {
-        setThemeState(storedTheme);
-        applyTheme(storedTheme);
-      } else {
-        // Dark theme is the default
-        setThemeState("dark");
-        applyTheme("dark");
-      }
+      const stored = localStorage.getItem("portfolio-theme") as Theme | null;
+      const resolved: Theme = stored === "light" ? "light" : "dark";
+      setTheme(resolved);
+      applyTheme(resolved);
     } catch {
-      setThemeState("dark");
       applyTheme("dark");
     }
-
-    return () => {
-      if (switchTimerRef.current) clearTimeout(switchTimerRef.current);
-      if (finishTimerRef.current) clearTimeout(finishTimerRef.current);
-    };
   }, []);
 
-  const applyTheme = (newTheme: Theme) => {
-    const root = document.documentElement;
-    if (newTheme === "light") {
-      root.classList.remove("dark");
-      root.classList.add("light");
-      root.style.colorScheme = "light";
-    } else {
-      root.classList.add("dark");
-      root.classList.remove("light");
-      root.style.colorScheme = "dark";
-    }
+  const toggleTheme = (
+    originX?: number,
+    originY?: number
+  ) => {
+    if (lockRef.current) return;
+    lockRef.current = true;
+
+    const newTheme: Theme = theme === "dark" ? "light" : "dark";
+
+    // Record from-theme for overlay color, then flip immediately underneath
+    const fromTheme: Theme = theme;
+    const x = originX ?? window.innerWidth / 2;
+    const y = originY ?? window.innerHeight / 2;
+
+    // Apply new theme to DOM right away (overlay hides it temporarily)
+    setTheme(newTheme);
+    applyTheme(newTheme);
+    try {
+      localStorage.setItem("portfolio-theme", newTheme);
+    } catch {}
+
+    // Kick off overlay animation
+    setTransition({ active: true, x, y, fromTheme });
   };
 
-  const setTheme = (newTheme: Theme) => {
-    if (newTheme === theme || isTransitioning) return;
-
-    setIsTransitioning(true);
-    setTargetTheme(newTheme);
-
-    // Midpoint: when the diagonal sweep passes center (310ms), flip theme underneath
-    switchTimerRef.current = setTimeout(() => {
-      setThemeState(newTheme);
-      applyTheme(newTheme);
-      try {
-        localStorage.setItem("portfolio-theme", newTheme);
-      } catch (e) {
-        console.error("Failed to persist theme", e);
-      }
-    }, 310);
-
-    // End: when diagonal sweep clears the screen (660ms), end transition state
-    finishTimerRef.current = setTimeout(() => {
-      setIsTransitioning(false);
-      setTargetTheme(null);
-    }, 660);
-  };
-
-  const toggleTheme = () => {
-    if (isTransitioning) return;
-    setTheme(theme === "dark" ? "light" : "dark");
+  const endTransition = () => {
+    setTransition(null);
+    lockRef.current = false;
   };
 
   return (
-    <ThemeContext.Provider
-      value={{ theme, targetTheme, isTransitioning, setTheme, toggleTheme, mounted }}
-    >
+    <ThemeContext.Provider value={{ theme, mounted, transition, toggleTheme, endTransition }}>
       {children}
     </ThemeContext.Provider>
   );
