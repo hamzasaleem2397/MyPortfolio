@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, FileDown, Code2, Sparkles } from "lucide-react";
+import { Menu, X, FileDown, Code2 } from "lucide-react";
 import { greeting } from "@/portfolio";
+import ThemeToggle from "@/components/theme/ThemeToggle";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -47,7 +48,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-slate-950/80 backdrop-blur-xl border-b border-cyan-500/20 py-3 shadow-lg shadow-black/40"
+          ? "bg-white/85 dark:bg-slate-950/85 backdrop-blur-xl border-b border-slate-200/80 dark:border-cyan-500/20 py-3 shadow-lg shadow-slate-200/40 dark:shadow-black/40"
           : "bg-transparent py-5"
       }`}
     >
@@ -60,17 +61,17 @@ export default function Header() {
           className="flex items-center gap-2 text-xl font-bold font-mono group cursor-pointer"
         >
           <div className="w-9 h-9 rounded-lg bg-gradient-to-tr from-cyan-500 to-purple-600 p-[1px] group-hover:scale-105 transition-transform">
-            <div className="w-full h-full bg-slate-950 rounded-[7px] flex items-center justify-center">
-              <Code2 className="w-5 h-5 text-cyan-400 group-hover:rotate-12 transition-transform" />
+            <div className="w-full h-full bg-white dark:bg-slate-950 rounded-[7px] flex items-center justify-center">
+              <Code2 className="w-5 h-5 text-cyan-600 dark:text-cyan-400 group-hover:rotate-12 transition-transform" />
             </div>
           </div>
-          <span className="text-white group-hover:text-cyan-400 transition-colors">
+          <span className="text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
             {greeting.logo_name}
           </span>
         </motion.a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-full border border-cyan-500/10 backdrop-blur-md">
+        <nav className="hidden md:flex items-center gap-1 bg-white/70 dark:bg-slate-900/60 p-1.5 rounded-full border border-slate-200/80 dark:border-cyan-500/10 backdrop-blur-md shadow-sm dark:shadow-none">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
@@ -79,14 +80,14 @@ export default function Header() {
                 href={link.href}
                 className={`relative px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
                   isActive
-                    ? "text-cyan-400 font-semibold"
-                    : "text-slate-300 hover:text-white hover:bg-slate-800/50"
+                    ? "text-cyan-600 dark:text-cyan-400 font-semibold"
+                    : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50"
                 }`}
               >
                 {isActive && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute inset-0 bg-cyan-500/15 border border-cyan-500/30 rounded-full"
+                    className="absolute inset-0 bg-cyan-500/10 dark:bg-cyan-500/15 border border-cyan-500/30 rounded-full"
                     transition={{ type: "spring", duration: 0.5 }}
                   />
                 )}
@@ -96,8 +97,10 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Action Button: Resume */}
+        {/* Action Buttons: Theme Toggle & Resume */}
         <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
+
           <a
             href={`/${greeting.resumefile}`}
             target="_blank"
@@ -109,14 +112,18 @@ export default function Header() {
           </a>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-slate-300 hover:text-white bg-slate-900/80 rounded-lg border border-cyan-500/20 cursor-pointer"
-          aria-label="Toggle Navigation Menu"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile Actions & Menu Toggle */}
+        <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle />
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-white/90 dark:bg-slate-900/80 rounded-lg border border-slate-200 dark:border-cyan-500/20 cursor-pointer shadow-sm"
+            aria-label="Toggle Navigation Menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer */}
@@ -126,7 +133,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-slate-950/95 border-b border-cyan-500/20 backdrop-blur-2xl overflow-hidden"
+            className="md:hidden bg-white/95 dark:bg-slate-950/95 border-b border-slate-200 dark:border-cyan-500/20 backdrop-blur-2xl overflow-hidden shadow-xl"
           >
             <div className="px-4 pt-3 pb-6 space-y-2">
               {navLinks.map((link) => (
@@ -134,7 +141,7 @@ export default function Header() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-900 hover:text-cyan-400 transition-colors"
+                  className="block px-4 py-2.5 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                 >
                   {link.name}
                 </a>

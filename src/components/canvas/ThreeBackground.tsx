@@ -3,8 +3,9 @@
 import React, { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { useTheme } from "@/context/ThemeContext";
 
-function ParticleField() {
+function ParticleField({ isDark }: { isDark: boolean }) {
   const count = 350;
   const meshRef = useRef<THREE.Points>(null!);
 
@@ -12,9 +13,10 @@ function ParticleField() {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
 
-    const cyan = new THREE.Color("#06b6d4");
-    const purple = new THREE.Color("#a855f7");
-    const emerald = new THREE.Color("#10b981");
+    // Dynamic color palette based on theme
+    const cyan = isDark ? new THREE.Color("#06b6d4") : new THREE.Color("#0284c7");
+    const purple = isDark ? new THREE.Color("#a855f7") : new THREE.Color("#7e22ce");
+    const emerald = isDark ? new THREE.Color("#10b981") : new THREE.Color("#059669");
 
     const colorChoices = [cyan, purple, emerald];
 
@@ -30,7 +32,7 @@ function ParticleField() {
     }
 
     return [pos, col];
-  }, [count]);
+  }, [count, isDark]);
 
   useFrame((state) => {
     if (meshRef.current) {
@@ -57,11 +59,11 @@ function ParticleField() {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.12}
+        size={isDark ? 0.12 : 0.14}
         vertexColors
         transparent
-        opacity={0.7}
-        blending={THREE.AdditiveBlending}
+        opacity={isDark ? 0.7 : 0.6}
+        blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending}
         sizeAttenuation
       />
     </points>
@@ -69,6 +71,9 @@ function ParticleField() {
 }
 
 export default function ThreeBackground() {
+  const { theme, mounted } = useTheme();
+  const isDark = !mounted || theme === "dark";
+
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       <Canvas
@@ -76,7 +81,7 @@ export default function ThreeBackground() {
         gl={{ alpha: true, antialias: true }}
       >
         <ambientLight intensity={0.5} />
-        <ParticleField />
+        <ParticleField isDark={isDark} />
       </Canvas>
     </div>
   );

@@ -154,7 +154,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   return (
     <AnimatePresence>
       {project && (
-        <div className="fixed inset-0 z-[100] overflow-y-auto bg-slate-950/80 backdrop-blur-xl">
+        <div className="fixed inset-0 z-[100] overflow-y-auto bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-xl">
 
           {/* Scrollable centering wrapper */}
           <div
@@ -166,20 +166,20 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               animate={{ opacity: 1, rotateX: 0, rotateY: 0, scale: 1, y: 0 }}
               exit={{ opacity: 0, rotateX: -20, rotateY: 10, scale: 0.9, y: -30 }}
               transition={{ type: "spring", damping: 25, stiffness: 120, mass: 1, delay: 0.05 }}
-              className="relative w-full max-w-6xl bg-slate-900/80 rounded-3xl overflow-hidden border border-cyan-500/30 shadow-[0_0_80px_rgba(6,182,212,0.15)] flex flex-col lg:flex-row my-auto"
+              className="relative w-full max-w-6xl bg-white/95 dark:bg-slate-900/90 rounded-3xl overflow-hidden border border-slate-200 dark:border-cyan-500/30 shadow-2xl dark:shadow-[0_0_80px_rgba(6,182,212,0.15)] flex flex-col lg:flex-row my-auto"
               style={{ transformStyle: "preserve-3d" }}
             >
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="absolute top-3 right-3 sm:top-5 sm:right-5 z-50 p-2 sm:p-2.5 rounded-full bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-white/10 transition-colors cursor-pointer shadow-lg backdrop-blur-md"
+                className="absolute top-3 right-3 sm:top-5 sm:right-5 z-50 p-2 sm:p-2.5 rounded-full bg-white/90 dark:bg-slate-900/80 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-white/10 transition-colors cursor-pointer shadow-lg backdrop-blur-md"
                 aria-label="Close modal"
               >
                 <X className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
 
               {/* Left 3D Showcase */}
-              <div className="w-full lg:w-7/12 flex flex-col items-center justify-center relative h-[320px] sm:h-[400px] lg:h-auto lg:min-h-[550px] overflow-hidden shrink-0">
+              <div className="w-full lg:w-7/12 flex flex-col items-center justify-center relative h-[320px] sm:h-[400px] lg:h-auto lg:min-h-[550px] overflow-hidden shrink-0 bg-slate-100/50 dark:bg-transparent">
                 {images.length > 0 ? (
                   <>
                     <ThreeDGallery images={images} currentIndex={currentImgIndex} />
@@ -189,14 +189,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                       <>
                         <button
                           onClick={handlePrev}
-                          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 rounded-full bg-slate-900/70 backdrop-blur-md text-white hover:bg-cyan-500 hover:text-slate-950 transition-colors cursor-pointer border border-white/10 z-20 shadow-lg"
+                          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 rounded-full bg-white/80 dark:bg-slate-900/70 backdrop-blur-md text-slate-800 dark:text-white hover:bg-cyan-500 hover:text-slate-950 transition-colors cursor-pointer border border-slate-200 dark:border-white/10 z-20 shadow-lg"
                           aria-label="Previous image"
                         >
                           <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                         </button>
                         <button
                           onClick={handleNext}
-                          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 rounded-full bg-slate-900/70 backdrop-blur-md text-white hover:bg-cyan-500 hover:text-slate-950 transition-colors cursor-pointer border border-white/10 z-20 shadow-lg"
+                          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 rounded-full bg-white/80 dark:bg-slate-900/70 backdrop-blur-md text-slate-800 dark:text-white hover:bg-cyan-500 hover:text-slate-950 transition-colors cursor-pointer border border-slate-200 dark:border-white/10 z-20 shadow-lg"
                           aria-label="Next image"
                         >
                           <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -206,14 +206,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                     {/* Carousel Dots */}
                     {images.length > 1 && (
-                      <div className="absolute bottom-4 sm:bottom-6 flex items-center gap-2 bg-slate-900/70 backdrop-blur-md px-3 py-2 rounded-full border border-white/10 z-20">
+                      <div className="absolute bottom-4 sm:bottom-6 flex items-center gap-2 bg-white/80 dark:bg-slate-900/70 backdrop-blur-md px-3 py-2 rounded-full border border-slate-200 dark:border-white/10 z-20 shadow-sm">
                         {images.map((_, idx) => (
                           <button
                             key={idx}
                             onClick={() => setCurrentImgIndex(idx)}
                             className={`h-2 rounded-full transition-all ${idx === currentImgIndex
-                              ? "bg-cyan-400 w-5 sm:w-6 shadow-[0_0_10px_rgba(34,211,238,0.8)]"
-                              : "bg-slate-400 hover:bg-white w-2"
+                              ? "bg-cyan-500 dark:bg-cyan-400 w-5 sm:w-6 shadow-[0_0_10px_rgba(34,211,238,0.8)]"
+                              : "bg-slate-300 dark:bg-slate-400 hover:bg-slate-600 dark:hover:bg-white w-2"
                               }`}
                           />
                         ))}
@@ -226,7 +226,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
 
               {/* Right Details Panel */}
-              <div className="w-full lg:w-5/12 p-5 sm:p-8 lg:p-10 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/5 bg-slate-900/40 backdrop-blur-sm z-10">
+              <div className="w-full lg:w-5/12 p-5 sm:p-8 lg:p-10 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-white/5 bg-slate-50/70 dark:bg-slate-900/40 backdrop-blur-sm z-10">
                 <div>
                   {/* Header Logo + Title */}
                   <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6 pr-8 lg:pr-0">
@@ -235,7 +235,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                         initial={{ rotateZ: -180, opacity: 0 }}
                         animate={{ rotateZ: 0, opacity: 1 }}
                         transition={{ type: "spring", delay: 0.2, damping: 15 }}
-                        className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-slate-900 border border-cyan-500/20 p-2 sm:p-3 flex items-center justify-center shrink-0 shadow-lg"
+                        className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/20 p-2 sm:p-3 flex items-center justify-center shrink-0 shadow-lg"
                       >
                         <img
                           src={`/images/${project.logo}`}
@@ -252,10 +252,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.3 }}
                     >
-                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-tight">
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
                         {project.name}
                       </h3>
-                      <span className="text-xs sm:text-sm font-mono text-cyan-400 font-medium tracking-wide">
+                      <span className="text-xs sm:text-sm font-mono text-cyan-600 dark:text-cyan-400 font-medium tracking-wide">
                         Mobile & Full Stack
                       </span>
                     </motion.div>
@@ -266,7 +266,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8"
+                    className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8"
                   >
                     {project.description}
                   </motion.p>
@@ -285,9 +285,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                       {project.languages.map((lang, lIdx) => (
                         <span
                           key={lIdx}
-                          className="px-2.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-slate-900/80 border border-cyan-500/30 text-xs sm:text-sm font-medium text-cyan-300 flex items-center gap-1.5 sm:gap-2 shadow-sm"
+                          className="px-2.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-cyan-500/30 text-xs sm:text-sm font-medium text-cyan-700 dark:text-cyan-300 flex items-center gap-1.5 sm:gap-2 shadow-sm"
                         >
-                          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
+                          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
                           {lang.name}
                         </span>
                       ))}
@@ -300,7 +300,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
-                  className="space-y-3 pt-5 sm:pt-6 border-t border-slate-800 mt-auto"
+                  className="space-y-3 pt-5 sm:pt-6 border-t border-slate-200 dark:border-slate-800 mt-auto"
                 >
                   {project.playstore && (
                     <a

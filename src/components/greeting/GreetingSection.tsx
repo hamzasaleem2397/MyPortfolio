@@ -3,7 +3,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { ArrowRight, FileDown, Sparkles, Send, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Sparkles, Send, Github, Linkedin, Mail } from "lucide-react";
 import { greeting, socialMediaLinks } from "@/portfolio";
 
 const HeroScene3D = dynamic(() => import("../canvas/HeroScene3D"), {
@@ -29,14 +29,14 @@ export default function GreetingSection() {
             className="lg:col-span-6 flex flex-col items-start"
           >
             {/* Availability Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-400 text-xs font-semibold tracking-wide uppercase mb-6 backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-600 dark:text-cyan-400 text-xs font-semibold tracking-wide uppercase mb-6 backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-ping" />
+              <Sparkles className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
               <span>Available for Senior Mobile & Full-Stack Roles</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight mb-4">
+            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight mb-4">
               {greeting.title}{" "}
               <span className="block mt-2 text-gradient-cyan">
                 {greeting.title2}
@@ -44,7 +44,7 @@ export default function GreetingSection() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-lg sm:text-xl text-slate-300 max-w-2xl font-normal leading-relaxed mb-8">
+            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl font-normal leading-relaxed mb-8">
               {greeting.subTitle}
             </p>
 
@@ -60,22 +60,22 @@ export default function GreetingSection() {
 
               <a
                 href="#contact"
-                className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-slate-900/80 border border-cyan-500/30 hover:border-cyan-400 text-white font-semibold text-sm backdrop-blur-md hover:bg-slate-800 transition-all duration-300 cursor-pointer"
+                className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-cyan-500/30 hover:border-cyan-500 text-slate-800 dark:text-white font-semibold text-sm backdrop-blur-md hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300 cursor-pointer shadow-sm dark:shadow-none"
               >
-                <Send className="w-4 h-4 text-cyan-400" />
+                <Send className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                 <span>Contact Me</span>
               </a>
             </div>
 
             {/* Social Links Bar */}
-            <div className="flex items-center gap-4 pt-4 border-t border-slate-800/80 w-full">
-              <span className="text-xs uppercase font-mono tracking-wider text-slate-400">Connect:</span>
+            <div className="flex items-center gap-4 pt-4 border-t border-slate-200 dark:border-slate-800/80 w-full">
+              <span className="text-xs uppercase font-mono tracking-wider text-slate-500 dark:text-slate-400">Connect:</span>
               {socialMediaLinks.github && (
                 <a
                   href={socialMediaLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-cyan-400 transition-colors p-1"
+                  className="text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors p-1"
                   aria-label="GitHub"
                 >
                   <Github className="w-5 h-5" />
@@ -86,7 +86,7 @@ export default function GreetingSection() {
                   href={socialMediaLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-cyan-400 transition-colors p-1"
+                  className="text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors p-1"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
@@ -95,7 +95,7 @@ export default function GreetingSection() {
               {socialMediaLinks.gmail && (
                 <a
                   href={`mailto:${socialMediaLinks.gmail}`}
-                  className="text-slate-400 hover:text-cyan-400 transition-colors p-1"
+                  className="text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors p-1"
                   aria-label="Email"
                 >
                   <Mail className="w-5 h-5" />

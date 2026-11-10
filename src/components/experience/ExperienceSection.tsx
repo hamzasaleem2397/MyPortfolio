@@ -12,14 +12,14 @@ export default function ExperienceSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 text-xs font-mono mb-4">
             <Briefcase className="w-3.5 h-3.5" />
             <span>Career Progression</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Work & <span className="text-gradient-cyan">Experience</span>
           </h2>
-          <p className="text-slate-400 text-base sm:text-lg mt-4">
+          <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg mt-4">
             {experience.description}
           </p>
         </div>
@@ -49,8 +49,8 @@ export default function ExperienceSection() {
                 }`}
               >
                 {/* Timeline Dot Node */}
-                <div className="absolute left-4 sm:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-950 border-2 border-cyan-400 z-20 shadow-lg shadow-cyan-500/50 flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                <div className="absolute left-4 sm:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full bg-white dark:bg-slate-950 border-2 border-cyan-500 dark:border-cyan-400 z-20 shadow-lg shadow-cyan-500/30 dark:shadow-cyan-500/50 flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 dark:bg-cyan-400 animate-pulse" />
                 </div>
 
                 {/* Content Box */}
@@ -60,14 +60,14 @@ export default function ExperienceSection() {
                     {/* Header: Title & Company */}
                     <div className="flex items-start justify-between gap-4 mb-3">
                       <div>
-                        <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                           {exp.title}
                         </h3>
                         <a
                           href={exp.company_url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-sm font-semibold text-cyan-400 hover:underline mt-0.5"
+                          className="inline-flex items-center gap-1 text-sm font-semibold text-cyan-600 dark:text-cyan-400 hover:underline mt-0.5"
                         >
                           <span>{exp.company}</span>
                           <ExternalLink className="w-3.5 h-3.5" />
@@ -75,7 +75,7 @@ export default function ExperienceSection() {
                       </div>
 
                       {/* Company Logo / Badge */}
-                      <div className="w-11 h-11 rounded-xl bg-slate-900 border border-cyan-500/20 p-1.5 flex items-center justify-center shrink-0">
+                      <div className="w-11 h-11 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/20 p-1.5 flex items-center justify-center shrink-0 shadow-sm">
                         <img
                           src={`/images/${exp.logo_path}`}
                           alt={exp.company}
@@ -88,22 +88,22 @@ export default function ExperienceSection() {
                     </div>
 
                     {/* Metadata: Duration & Location */}
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400 mb-4 pb-4 border-b border-slate-800">
+                    <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-4 pb-4 border-b border-slate-200 dark:border-slate-800">
                       <div className="flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5 text-purple-400" />
+                        <Calendar className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
                         <span>{exp.duration}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-emerald-400" />
+                        <MapPin className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                         <span>{exp.location}</span>
                       </div>
                     </div>
 
                     {/* Bullet Achievements */}
-                    <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
+                    <ul className="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                       {bullets.map((bullet, bIdx) => (
                         <li key={bIdx} className="flex items-start gap-2 leading-relaxed">
-                          <ChevronRight className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-1" />
+                          <ChevronRight className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 shrink-0 mt-1" />
                           <span>{bullet}</span>
                         </li>
                       ))}
