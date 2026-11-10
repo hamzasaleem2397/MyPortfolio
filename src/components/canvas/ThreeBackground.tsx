@@ -6,14 +6,13 @@ import * as THREE from "three";
 import { useTheme } from "@/context/ThemeContext";
 
 function ParticleField({ isDark }: { isDark: boolean }) {
-  const count = 350;
+  const count = 280;
   const meshRef = useRef<THREE.Points>(null!);
 
   const [positions, colors] = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
 
-    // Dynamic color palette based on theme
     const cyan = isDark ? new THREE.Color("#06b6d4") : new THREE.Color("#0284c7");
     const purple = isDark ? new THREE.Color("#a855f7") : new THREE.Color("#7e22ce");
     const emerald = isDark ? new THREE.Color("#10b981") : new THREE.Color("#059669");
@@ -34,29 +33,19 @@ function ParticleField({ isDark }: { isDark: boolean }) {
     return [pos, col];
   }, [count, isDark]);
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.03;
-      meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.04;
-
-      // Mouse parallax influence
-      const { x, y } = state.pointer;
-      meshRef.current.rotation.x += y * 0.001;
-      meshRef.current.rotation.y += x * 0.001;
+      // Delta-based rotation for consistent 60fps/120fps regardless of refresh rate
+      meshRef.current.rotation.x += delta * 0.03;
+      meshRef.current.rotation.y += delta * 0.04;
     }
   });
 
   return (
     <points ref={meshRef}>
       <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          args={[positions, 3]}
-        />
-        <bufferAttribute
-          attach="attributes-color"
-          args={[colors, 3]}
-        />
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+        <bufferAttribute attach="attributes-color" args={[colors, 3]} />
       </bufferGeometry>
       <pointsMaterial
         size={isDark ? 0.12 : 0.14}
@@ -65,6 +54,7 @@ function ParticleField({ isDark }: { isDark: boolean }) {
         opacity={isDark ? 0.7 : 0.6}
         blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending}
         sizeAttenuation
+        depthWrite={false}
       />
     </points>
   );
@@ -75,10 +65,17 @@ export default function ThreeBackground() {
   const isDark = !mounted || theme === "dark";
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden transform-gpu">
       <Canvas
         camera={{ position: [0, 0, 15], fov: 60 }}
-        gl={{ alpha: true, antialias: true }}
+        dpr={[1, 1.5]}
+        gl={{
+          alpha: true,
+          antialias: false,
+          powerPreference: "high-performance",
+          depth: false,
+        }}
+        resize={{ scroll: false, debounce: { scroll: 0, resize: 100 } }}
       >
         <ambientLight intensity={0.5} />
         <ParticleField isDark={isDark} />

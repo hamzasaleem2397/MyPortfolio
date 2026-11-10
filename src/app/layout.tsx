@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import dynamic from "next/dynamic";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
-import ThemeCurtain from "@/components/theme/ThemeCurtain";
+import ThemeTransition from "@/components/theme/ThemeTransition";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -65,7 +65,7 @@ export default function RootLayout({
         className={`${inter.className} bg-slate-50 dark:bg-[#070b14] text-slate-900 dark:text-slate-100 antialiased selection:bg-cyan-500 selection:text-white dark:selection:text-slate-950 transition-colors duration-300`}
       >
         <ThemeProvider>
-          <ThemeCurtain />
+          <ThemeTransition />
           <ThreeBackground />
           {children}
         </ThemeProvider>

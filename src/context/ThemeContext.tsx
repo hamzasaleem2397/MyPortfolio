@@ -74,7 +74,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setIsTransitioning(true);
     setTargetTheme(newTheme);
 
-    // Midpoint: when curtains close (380ms), swap the theme underneath
+    // Midpoint: when the diagonal sweep passes center (310ms), flip theme underneath
     switchTimerRef.current = setTimeout(() => {
       setThemeState(newTheme);
       applyTheme(newTheme);
@@ -83,13 +83,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       } catch (e) {
         console.error("Failed to persist theme", e);
       }
-    }, 380);
+    }, 310);
 
-    // End: when curtains fully open (820ms), clear transitioning state
+    // End: when diagonal sweep clears the screen (660ms), end transition state
     finishTimerRef.current = setTimeout(() => {
       setIsTransitioning(false);
       setTargetTheme(null);
-    }, 820);
+    }, 660);
   };
 
   const toggleTheme = () => {
